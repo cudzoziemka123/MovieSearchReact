@@ -6,7 +6,7 @@ import MovieTile from '../src/app/components/movieTile';
 export default function Home() {
     const [likes, setLikes] = React.useState(0);
     const [queryText, setqueryText] = React.useState('');
-    const [movieList, setmovieList] = React.useState([]);
+    const [movieList, setmovieList] = React.useState<Movie[]>([]);
 
 
     async function callAPI() {
@@ -17,7 +17,7 @@ export default function Home() {
                     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTk0ODU3NWQ0YjlkZjkzNjM5NTNlZTUxYzdmY2MxNiIsInN1YiI6IjY0NzlkZmEyY2FlZjJkMDBhYTQxZTkwYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qQicdNoHuKvkwzNftmM7Chp7fxtdamofQYozrqx3Y-s"
                 }
             });
-            const data = await findMovies.json();
+            const data: MovieResults = await findMovies.json();
             setmovieList(data.results);
             console.log(data);
         } catch (err) {

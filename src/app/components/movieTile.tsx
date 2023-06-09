@@ -1,5 +1,5 @@
 
-export default function MovieTile({ movie }: { movie: {} }) {
+export default function MovieTile({ movie }: { movie: Movie }) {
 
     return (<>
         <div style={{
