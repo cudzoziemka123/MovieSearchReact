@@ -2,11 +2,13 @@
 import React from 'react'
 import SearchBox from '../src/app/components/searchBox';
 import MovieTile from '../src/app/components/movieTile';
+import { useRouter } from 'next/router'
 
 export default function Home() {
     const [likes, setLikes] = React.useState(0);
     const [queryText, setqueryText] = React.useState('');
-    const [movieList, setmovieList] = React.useState([]);
+    const [movieList, setmovieList] = React.useState<Movie[]>([]);
+    const router = useRouter();
 
 
     async function callAPI() {
@@ -19,17 +21,22 @@ export default function Home() {
             });
             const data = await findMovies.json();
             setmovieList(data.results);
-            console.log(data);
         } catch (err) {
             console.log(err);
         }
     };
-    function changeQueryText(event: any) {
-        setqueryText(event.target.value);
-        console.log(event.target.value);
 
+
+
+    function openDetailsPage() {
+        router.push("details")
     }
 
+
+    function changeQueryText(event: any) {
+        setqueryText(event.target.value);
+
+    }
 
     return (
         <main>
@@ -44,13 +51,13 @@ export default function Home() {
                 alignItems: "sretch"
             }}>
                 {movieList.map((movie) => {
-                    return (<>
-                        <div id="resultTile" style={{
+                    return (
+                        <div key={movie.id} id="resultTile" style={{
 
                         }}>
-                            <MovieTile movie={movie}></MovieTile>
+                            <MovieTile movie={movie} callback={openDetailsPage}></MovieTile>
                         </div>
-                    </>)
+                    )
                 })}
             </div>
         </main>
