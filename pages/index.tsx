@@ -12,7 +12,7 @@ export default function Home() {
     const [movieList, setmovieList] = React.useState<Movie[]>([]);
     const router = useRouter();
 
-
+    function newFunction () {};
     async function callAPI() {
         try {
             const findMovies = await fetch(`https://api.themoviedb.org/3/search/movie?query=${queryText}`, {
