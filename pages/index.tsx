@@ -5,6 +5,8 @@ import MovieTile from '../src/app/components/movieTile';
 import { useRouter } from 'next/router'
 
 export default function Home() {
+    let newSmallVariable = 0;
+    const newBigVariable = 0;
     const [likes, setLikes] = React.useState(0);
     const [queryText, setqueryText] = React.useState('');
     const [movieList, setmovieList] = React.useState<Movie[]>([]);
