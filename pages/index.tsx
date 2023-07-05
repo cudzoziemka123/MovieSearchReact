@@ -13,8 +13,20 @@ export default function Home() {
     const router = useRouter();
 
     function newFunction () {
-        newSmallVariable = 15;
+        newSmallVariable = 15;        
+        let newArgument1 = newFunctionWithArgument (newSmallVariable);
+        const newArgument2 = newFunctionWithArgument (newFunctionWithArgument (newSmallVariable));
+        let newArgument3 = newFunctionWithArgument (newSmallVariable)+10;
+        let crazyVariable = 4;
+        let newArgument4 = newFunctionWithArgument (newFunctionWithArgument(newSmallVariable+5))+crazyVariable;
+
     };
+
+    function newFunctionWithArgument (myArgument: number) {
+        let newArgument = myArgument+5;
+        return newArgument;
+
+    }
     async function callAPI() {
         try {
             const findMovies = await fetch(`https://api.themoviedb.org/3/search/movie?query=${queryText}`, {
