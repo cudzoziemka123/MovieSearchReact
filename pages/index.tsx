@@ -32,8 +32,6 @@ export default function Home() {
 
     }
 
-
-
     async function callAPI() {
         try {
             const findMovies = await fetch(`https://api.themoviedb.org/3/search/movie?query=${queryText}`, {
@@ -49,16 +47,12 @@ export default function Home() {
         }
     };
 
-
-
     function openDetailsPage() {
         router.push("details")
     }
 
-
     function changeQueryText(event: any) {
         setqueryText(event.target.value);
-
     }
 
     return (
@@ -86,3 +80,4 @@ export default function Home() {
         </main>
     )
 }
+ 
