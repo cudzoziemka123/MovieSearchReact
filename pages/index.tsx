@@ -19,6 +19,7 @@ export default function Home() {
         let newArgument3 = newFunctionWithArgument (newSmallVariable)+10;
         let crazyVariable = 4;
         let newArgument4 = newFunctionWithArgument (newFunctionWithArgument(newSmallVariable+5))+crazyVariable;
+
     };
 
     function newFunctionWithArgument (myArgument: number) {
@@ -26,14 +27,6 @@ export default function Home() {
         return newArgument;
 
     }
-    const correctFunction = (myArgument: number) => {
-        let myNewArgument = myArgument*3;
-        return myNewArgument;
-
-    }
-
-
-
     async function callAPI() {
         try {
             const findMovies = await fetch(`https://api.themoviedb.org/3/search/movie?query=${queryText}`, {
